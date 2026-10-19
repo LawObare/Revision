@@ -7,6 +7,10 @@ import (
 
 func main() {
 
+	
+
+
+	http.HandleFunc("/about", about)
 	http.HandleFunc("/", home)
 
 
@@ -16,4 +20,8 @@ func main() {
 
 func home(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Hello, world"))
+}
+
+func about(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("This is my first real server built by hand, just as practice!!!"))
 }
