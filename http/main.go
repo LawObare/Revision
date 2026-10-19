@@ -6,16 +6,14 @@ import (
 )
 
 func main() {
+	mux := http.NewServeMux()
 
-	
-
-
-	http.HandleFunc("/about", about)
-	http.HandleFunc("/", home)
+	mux.HandleFunc("/about", about)
+	mux.HandleFunc("/", home)
 
 
 	fmt.Println("Listening on http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", mux)
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
